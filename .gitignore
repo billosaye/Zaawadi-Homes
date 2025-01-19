@@ -1,0 +1,93 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for debugging
+.vscode/
+
+# Dependency directories
+node_modules/
+client/node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build files
+dist/
+build/
+client/build/
+public/assets/
+
+# Database files
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+*.iml
+
+# Temporary files
+tmp/
+temp/
+
+# Test output
+coverage/
+
+# Parcel-bundler cache
+.cache/
+
+# Optional npm cache
+.npm/
+
+# Yarn Integrity
+.yarn-integrity
+
+# dotenv environment variable files
+.env.test
+.env.production
+
+# Optional ESLint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+*.nuxt
+
+# SvelteKit build output
+.svelte-kit/
+
+# Remix build output
+.build/
+
+# Logs and coverage for testing
+coverage/
+lcov-report/
+
+# Miscellaneous
+*.bak
+*.swp
+*.lock
+*.log
+*.out
+*.snap
