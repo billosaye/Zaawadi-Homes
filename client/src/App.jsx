@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes, Link, Outlet } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, Outlet, Navigate } from "react-router-dom";
+import { useSelector } from 'react-redux'; // Import useSelector to access Redux state
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
@@ -10,6 +11,11 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { Helmet } from "react-helmet"; // Importing react-helmet for dynamic <head> management
 
+const ProtectedRoute = ({ element }) => {
+  const { currentUser } = useSelector((state) => state.user); // Access currentUser from Redux state
+  return currentUser ? element : <Navigate to="/signin" />; // Redirect to signin if not authenticated
+};
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,11 +26,8 @@ const App = () => {
           element={
             <>
               <Helmet>
-                <title>Sign Up - Zaawadi Homes</title>
-                <meta
-                  name="description"
-                  content="Create an account with Zaawadi Homes and start your property search today!"
-                />
+                <title>Sign Up </title>
+                <meta name="description" content="Create an account with Zaawadi Homes and start your property search today!" />
               </Helmet>
               <SignUp />
             </>
@@ -35,11 +38,8 @@ const App = () => {
           element={
             <>
               <Helmet>
-                <title>Sign In - Zaawadi Homes</title>
-                <meta
-                  name="description"
-                  content="Sign in to Zaawadi Homes to access your account and saved listings."
-                />
+                <title>Sign In </title>
+                <meta name="description" content="Sign in to Zaawadi Homes to access your account and saved listings." />
               </Helmet>
               <SignIn />
             </>
@@ -52,7 +52,7 @@ const App = () => {
             <div className="min-h-screen flex flex-col">
               <Header />
               <main className="flex-grow">
-                <Outlet />
+                <Outlet /> 
               </main>
               <Footer />
             </div>
@@ -63,13 +63,10 @@ const App = () => {
             element={
               <>
                 <Helmet>
-                  <title> Zaawadi Homes</title>
-                  <meta
-                    name="description"
-                    content="Explore our featured listings and find your dream home."
-                  />
+                  <title>Zaawadi Homes</title>
+                  <meta name="description" content="Welcome to Zaawadi Homes, your go-to platform for finding the best properties." />
                 </Helmet>
-                <Home />
+                <ProtectedRoute element={<Home />} />
               </>
             }
           />
@@ -78,69 +75,50 @@ const App = () => {
             element={
               <>
                 <Helmet>
-                  <title>About Zaawadi Homes</title>
-                  <meta
-                    name="description"
-                    content="Learn more about Zaawadi Homes and how we help you find the perfect home."
-                  />
+                  <title>About Us </title>
+                  <meta name="description" content="Learn more about Zaawadi Homes and our mission." />
                 </Helmet>
-                <About />
+                <ProtectedRoute element={<About />} />
               </>
             }
           />
-
-
           <Route
             path="/properties"
             element={
               <>
                 <Helmet>
-                  <title>OurProperties</title>
-                  <meta
-                    name="description"
-                    content="Explore our property listings and find the perfect home for you."
-                  />
+                  <title>Our Properties</title>
+                  <meta name="description" content="Explore a wide range of properties available at Zaawadi Homes." />
                 </Helmet>
-                <Properties />
+                <ProtectedRoute element={<Properties />} />
               </>
             }
           />
-
-
           <Route
             path="/contact"
             element={
               <>
                 <Helmet>
-                  <title>Contact Zaawadi Homes</title>
-                  <meta
-                    name="description"
-                    content="Contact Zaawadi Homes for more information and to schedule a showing."
-                  />
+                  <title>Contact Us </title>
+                  <meta name="description" content="Get in touch with Zaawadi Homes for any inquiries." />
                 </Helmet>
-                <Contact />
+                <ProtectedRoute element={<Contact />} />
               </>
             }
           />
-
-
-
           <Route
             path="/profile"
             element={
               <>
                 <Helmet>
                   <title>Your Profile</title>
-                  <meta
-                    name="description"
-                    content="Manage your account, view saved properties, and track your activity."
-                  />
+                  <meta name="description" content="View and manage your profile on Zaawadi Homes." />
                 </Helmet>
-                <Profile />
+                <ProtectedRoute element={<Profile />} />
               </>
             }
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<ProtectedRoute element={<NotFound />} />} />
         </Route>
       </Routes>
     </BrowserRouter>
