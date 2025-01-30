@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../Redux/user/userSlice';  
+import Oauth from '../Components/Oauth';
 
 
 const SignIn = () => {
@@ -173,6 +174,11 @@ const SignIn = () => {
                 {error}
               </p>
             )}
+
+            <Oauth />
+
+
+
 
             {/* Sign Up Link */}
             <p className="mt-4 text-center text-sm text-gray-600">

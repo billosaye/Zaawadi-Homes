@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../Redux/user/userSlice';
+import Oauth from '../Components/Oauth';
 
 function SignUp() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function SignUp() {
       [e.target.name]: e.target.value
     });
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -177,6 +179,9 @@ function SignUp() {
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 transform hover:-translate-y-0.5"
             >
               {loading ? 'Creating Account...' : 'Sign up'}
+              <Oauth />
+
+
             </button>
 
             {/* Display error message if any */}
@@ -185,6 +190,8 @@ function SignUp() {
                 {error}
               </p>
             )}
+
+            
 
             {/* Sign In Link */}
             <p className="mt-4 text-center text-sm text-gray-600">
