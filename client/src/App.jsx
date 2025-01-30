@@ -137,4 +137,6 @@ const NotFound = () => {
   );
 };
 
-export default App; // This is the main component that will be exported and used in the main.jsx file
+export default App; 
+
+// the code establishes a structured routing system with authentication checks, ensuring that only logged-in users can access certain pages while providing a user-friendly experience with dynamic page titles and descriptions.
