@@ -1,33 +1,41 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
-const links = [
-    { name: 'Home', href: '/' },
-    { name: 'Properties', href: '/properties' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Sign In', href: '/signin' },
-];
+import { useSelector } from 'react-redux';
 
 function MenuLinks({ onLinkClick }) {
+    const { user } = useSelector((state) => state.user); // Accessing user from Redux state
     return (
         <>
-            {links.map((link) => (
-                <Link
-                    key={link.name}
-                    to={link.href}
-                    onClick={onLinkClick}
-                    className="text-gray-600 hover:text-secondary block px-3 py-2"
-                >
-                    {link.name}
-                </Link>
-            ))}
+            <Link to="/" onClick={onLinkClick} className="text-gray-600 hover:text-secondary block px-3 py-2">
+                Home
+            </Link>
+            <Link to="/properties" onClick={onLinkClick} className="text-gray-600 hover:text-secondary block px-3 py-2">
+                Properties
+            </Link>
+            <Link to="/about" onClick={onLinkClick} className="text-gray-600 hover:text-secondary block px-3 py-2">
+                About
+            </Link>
+            <Link to="/contact" onClick={onLinkClick} className="text-gray-600 hover:text-secondary block px-3 py-2">
+                Contact
+            </Link>
+            <Link to="/profile" onClick={onLinkClick}>
+            <img src={user?.avatar} alt="profile" className="w-10 h-10 rounded-full" />              
+            </Link>
+
+           
+
+            
+
+
+
+
         </>
     );
 }
 
 export default function Header() {
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = useCallback(() => {
