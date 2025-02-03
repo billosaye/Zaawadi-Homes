@@ -95,59 +95,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <Home className="w-6 h-6 text-blue-500" />
-                <span className="text-xl font-bold">Zaawadi</span>
-              </div>
-              <p className="text-gray-400">
-                The most trusted real estate platform for finding your dream home.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">About Us</a></li>
-                <li><a href="#" className="hover:text-white">Properties</a></li>
-                <li><a href="#" className="hover:text-white">Agents</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Property Types</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Houses</a></li>
-                <li><a href="#" className="hover:text-white">Apartments</a></li>
-                <li><a href="#" className="hover:text-white">Villas</a></li>
-                <li><a href="#" className="hover:text-white">Commercial</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Subscribe</h3>
-              <p className="text-gray-400 mb-4">
-                Subscribe to our newsletter for the latest updates.
-              </p>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="px-4 py-2 rounded-l-md w-full text-gray-900"
-                />
-                <button className="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Zaawadi Homes. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 }
